@@ -129,6 +129,65 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
+    .reel-card {
+      position: relative;
+      min-height: 540px;
+      border-radius: 34px;
+      overflow: hidden;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.5);
+    }
+
+    .reel-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.82) 100%);
+    }
+
+    .reel-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .reel-tag {
+      color: #ff8b38;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .reel-title {
+      font-size: 54px;
+      line-height: 0.92;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      margin-bottom: 16px;
+    }
+
+    .reel-subtitle {
+      color: #f4f4f5;
+      font-size: 20px;
+      line-height: 1.35;
+      margin-bottom: 18px;
+      max-width: 540px;
+    }
+
+    .reel-meta {
+      color: #d4d4d8;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     h2 {
       font-size: 28px;
       margin-bottom: 12px;
@@ -209,44 +268,41 @@
       <p class="tag">Twin Peaks</p>
     </div>
 
-    <div class="card">
-      <h2>Dixie</h2>
-      <p>Status: <span class="status">Available</span></p>
-      <p>Specialty: Margaritas</p>
-      <p class="favorite">Fan Favorites: Spicy Margarita, Texas Tea</p>
-      <p class="schedule">Schedule: Tuesday, Thursday, Saturday • 5PM - Midnight</p>
-      <p class="tag">Sports Bar</p>
-    </div>
-
-    <div class="card">
-      <h2>Georgia Mae</h2>
-      <p>Status: <span class="status">Weekend Shift</span></p>
-      <p>Specialty: Espresso Martinis</p>
-      <p class="favorite">Fan Favorites: Espresso Martini, Bourbon Cream Coffee</p>
-      <p class="schedule">Schedule: Friday, Saturday, Sunday • 7PM - 2AM</p>
-      <p class="tag">Downtown Lounge</p>
-    </div>
-
   </div>
 
   <div id="specials" class="section">
 
-    <div class="card">
-      <h2>$5 Long Islands</h2>
-      <p>Available until 9PM tonight.</p>
-      <p class="tag">Monday Special</p>
+    <div class="reel-card" style="background-image:url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1200');">
+      <div class="reel-content">
+        <div class="reel-tag">Tonight's Drink Feature</div>
+        <div class="reel-title">$5 Long Islands</div>
+        <div class="reel-subtitle">
+          Comment “website” for links.
+        </div>
+        <div class="reel-meta">Monday Special • Until 9PM</div>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>2-for-1 Margaritas</h2>
-      <p>House margaritas and strawberry margaritas included.</p>
-      <p class="tag">Thursday Special</p>
+    <div class="reel-card" style="background-image:url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=1200');">
+      <div class="reel-content">
+        <div class="reel-tag">House Favorite</div>
+        <div class="reel-title">2-for-1 Margaritas</div>
+        <div class="reel-subtitle">
+          Strawberry and house margaritas included tonight.
+        </div>
+        <div class="reel-meta">Thursday Special • All Night</div>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Late Night Espresso Martinis</h2>
-      <p>Half off after 10PM with live music.</p>
-      <p class="tag">Weekend Special</p>
+    <div class="reel-card" style="background-image:url('https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?q=80&w=1200');">
+      <div class="reel-content">
+        <div class="reel-tag">Late Night Menu</div>
+        <div class="reel-title">Espresso Martinis</div>
+        <div class="reel-subtitle">
+          Half off after 10PM with live music.
+        </div>
+        <div class="reel-meta">Weekend Special • Downtown Lounge</div>
+      </div>
     </div>
 
   </div>
