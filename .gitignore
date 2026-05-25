@@ -1,0 +1,38 @@
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# SSL / certs
+*.pem
+*.key
+*.crt
+
+# Docker / compose overrides
+docker-compose.override.yml
+
+# macOS
+.DS_Store
+
+# Linux temp files
+*~
+
+# Vim
+.*.swp
+
+# VS Code
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+# Local runtime data
+data/
+config/
+
+# Caddy runtime storage
+caddy_data/
+caddy_config/

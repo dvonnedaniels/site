@@ -1,0 +1,4 @@
+dvonneslab.com {
+    root * /srv
+    file_server
+}
