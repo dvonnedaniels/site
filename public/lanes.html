@@ -11,82 +11,145 @@
     }
 
     body {
-      min-height: 100vh;
       margin: 0;
+      min-height: 100vh;
       background:
-        radial-gradient(circle at top left, rgba(139, 92, 246, 0.28), transparent 32%),
-        radial-gradient(circle at top right, rgba(236, 72, 153, 0.22), transparent 35%),
-        linear-gradient(180deg, #050505 0%, #0c0710 48%, #160b13 100%);
-      color: #f8fafc;
+        radial-gradient(circle at top left, rgba(80, 255, 220, 0.08), transparent 25%),
+        radial-gradient(circle at top right, rgba(255, 0, 140, 0.12), transparent 35%),
+        linear-gradient(180deg, #050505 0%, #0b0b0d 100%);
+      color: white;
       font-family: Arial, sans-serif;
-      padding: 42px;
+      padding: 24px;
     }
 
-    .page-header {
-      margin-bottom: 28px;
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 26px;
     }
 
-    .eyebrow {
-      color: #f472b6;
+    .menu-btn {
+      font-size: 34px;
+      color: white;
+      background: transparent;
+      border: none;
+    }
+
+    .subscribe-btn {
+      background: #52ffd8;
+      color: black;
+      padding: 12px 18px;
+      border-radius: 8px;
       font-size: 13px;
       font-weight: bold;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      border: none;
     }
 
-    h1 {
-      color: #ffffff;
-      font-size: 36px;
-      margin: 0 0 8px 0;
+    .title {
+      font-size: 62px;
+      font-weight: 900;
+      line-height: 0.9;
+      margin-bottom: 26px;
+      letter-spacing: -0.06em;
     }
 
-    .subtitle {
-      color: #a1a1aa;
-      margin: 0;
-      font-size: 16px;
+    .tabs {
+      display: flex;
+      gap: 12px;
+      background: #242424;
+      padding: 10px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      overflow-x: auto;
+    }
+
+    .tab {
+      padding: 14px 22px;
+      border-radius: 999px;
+      color: #f4f4f5;
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .tab.active {
+      background: #52ffd8;
+      color: black;
+    }
+
+    .feature-card {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ffb7e1 0%, #0b0b0d 100%);
+      margin-bottom: 30px;
+      min-height: 520px;
+      display: flex;
+      align-items: flex-end;
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .feature-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-title {
+      font-size: 54px;
+      line-height: 0.92;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+      max-width: 720px;
+    }
+
+    .feature-subtitle {
+      color: #d4d4d8;
+      font-size: 24px;
+      line-height: 1.25;
+      margin-bottom: 24px;
+      max-width: 680px;
+    }
+
+    .feature-meta {
+      color: #52ffd8;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      font-size: 14px;
+      text-transform: uppercase;
     }
 
     .bartender-card {
-      background: rgba(15, 15, 18, 0.82);
-      padding: 22px;
-      border-radius: 26px;
-      margin-bottom: 22px;
-      border: 1px solid rgba(244, 114, 182, 0.22);
-      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(14px);
+      background: rgba(15,15,18,0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
     h2 {
-      margin: 0 0 12px 0;
-      font-size: 26px;
-      color: #ffffff;
+      font-size: 28px;
+      margin-bottom: 12px;
     }
 
     p {
       color: #d4d4d8;
-      margin: 10px 0;
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     .status {
-      color: #fb7185;
+      color: #52ffd8;
       font-weight: bold;
     }
 
-    .tag {
-      display: inline-block;
-      color: #f9a8d4;
-      background: rgba(244, 114, 182, 0.12);
-      border: 1px solid rgba(244, 114, 182, 0.24);
-      padding: 7px 12px;
-      border-radius: 999px;
-      margin-top: 12px;
-      font-size: 14px;
-    }
-
     .favorite {
-      color: #f0abfc;
+      color: #f9a8d4;
       font-weight: bold;
     }
 
@@ -94,17 +157,37 @@
       color: #c4b5fd;
     }
 
+    .tag {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(82,255,216,0.08);
+      border: 1px solid rgba(82,255,216,0.18);
+      color: #52ffd8;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
     @media (max-width: 700px) {
       body {
-        padding: 34px 24px;
+        padding: 18px;
       }
 
-      h1 {
-        font-size: 30px;
+      .title {
+        font-size: 54px;
       }
 
-      h2 {
-        font-size: 24px;
+      .feature-title {
+        font-size: 46px;
+      }
+
+      .feature-subtitle {
+        font-size: 20px;
+      }
+
+      .feature-card {
+        min-height: 460px;
+        padding: 24px;
       }
     }
   </style>
@@ -112,10 +195,42 @@
 
 <body>
 
-  <div class="page-header">
-    <div class="eyebrow">Lanes</div>
-    <h1>Bartender Board</h1>
-    <p class="subtitle">Fan favorites, work schedules, and house specialties.</p>
+  <div class="topbar">
+    <button class="menu-btn">☰</button>
+
+    <button class="subscribe-btn">
+      Subscribe
+    </button>
+  </div>
+
+  <div class="title">
+    The Lanes
+  </div>
+
+  <div class="tabs">
+    <div class="tab active">TOP STORIES</div>
+    <div class="tab">LATEST</div>
+    <div class="tab">FOLLOWING</div>
+  </div>
+
+  <div class="feature-card">
+
+    <div class="feature-content">
+
+      <div class="feature-title">
+        Bartenders are learning to build personal brands.
+      </div>
+
+      <div class="feature-subtitle">
+        The best nightlife personalities create an atmosphere before the drinks even arrive.
+      </div>
+
+      <div class="feature-meta">
+        Lanes • May 25
+      </div>
+
+    </div>
+
   </div>
 
   <div class="bartender-card">
