@@ -55,28 +55,32 @@
       padding: 8px;
       border-radius: 999px;
       margin-bottom: 24px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .tabs::-webkit-scrollbar {
-      display: none;
     }
 
     .tab {
-      padding: 14px 20px;
+      flex: 1;
+      text-align: center;
+      padding: 14px 18px;
       border-radius: 999px;
       color: #f4f4f5;
       font-weight: bold;
       font-size: 13px;
       letter-spacing: 0.08em;
-      white-space: nowrap;
-      flex-shrink: 0;
+      cursor: pointer;
+      transition: 0.2s ease;
     }
 
     .tab.active {
       background: #52ffd8;
       color: black;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
     }
 
     .feature-card {
@@ -91,11 +95,6 @@
       padding: 26px;
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 20px 45px rgba(0,0,0,0.45);
-    }
-
-    .feature-content {
-      position: relative;
-      z-index: 2;
     }
 
     .feature-title {
@@ -121,7 +120,7 @@
       text-transform: uppercase;
     }
 
-    .bartender-card {
+    .card {
       background: rgba(15,15,18,0.92);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 28px;
@@ -165,30 +164,6 @@
       border-radius: 999px;
       font-size: 13px;
     }
-
-    @media (max-width: 700px) {
-
-      .title {
-        font-size: 58px;
-      }
-
-      .feature-title {
-        font-size: 48px;
-      }
-
-      .feature-subtitle {
-        font-size: 18px;
-      }
-
-      .feature-card {
-        min-height: 470px;
-        padding: 24px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
-    }
   </style>
 </head>
 
@@ -203,56 +178,93 @@
   </div>
 
   <div class="tabs">
-    <div class="tab active">BARTENDERS</div>
-    <div class="tab">DAILY SPECIALS</div>
+    <div class="tab active" onclick="showSection('bartenders', this)">BARTENDERS</div>
+    <div class="tab" onclick="showSection('specials', this)">DAILY SPECIALS</div>
   </div>
 
-  <div class="feature-card">
+  <div id="bartenders" class="section active">
 
-    <div class="feature-content">
+    <div class="feature-card">
+      <div>
+        <div class="feature-title">
+          Bartenders are learning to build personal brands.
+        </div>
 
-      <div class="feature-title">
-        Bartenders are learning to build personal brands.
+        <div class="feature-subtitle">
+          The best nightlife personalities create an atmosphere before the drinks even arrive.
+        </div>
+
+        <div class="feature-meta">
+          Lanes • May 25
+        </div>
       </div>
+    </div>
 
-      <div class="feature-subtitle">
-        The best nightlife personalities create an atmosphere before the drinks even arrive.
-      </div>
+    <div class="card">
+      <h2>Savannah</h2>
+      <p>Status: <span class="status">Working Tonight</span></p>
+      <p>Specialty: Long Islands</p>
+      <p class="favorite">Fan Favorites: Peach Whiskey Sour, Southern Mule</p>
+      <p class="schedule">Schedule: Monday, Wednesday, Friday • 6PM - 1AM</p>
+      <p class="tag">Twin Peaks</p>
+    </div>
 
-      <div class="feature-meta">
-        Lanes • May 25
-      </div>
+    <div class="card">
+      <h2>Dixie</h2>
+      <p>Status: <span class="status">Available</span></p>
+      <p>Specialty: Margaritas</p>
+      <p class="favorite">Fan Favorites: Spicy Margarita, Texas Tea</p>
+      <p class="schedule">Schedule: Tuesday, Thursday, Saturday • 5PM - Midnight</p>
+      <p class="tag">Sports Bar</p>
+    </div>
 
+    <div class="card">
+      <h2>Georgia Mae</h2>
+      <p>Status: <span class="status">Weekend Shift</span></p>
+      <p>Specialty: Espresso Martinis</p>
+      <p class="favorite">Fan Favorites: Espresso Martini, Bourbon Cream Coffee</p>
+      <p class="schedule">Schedule: Friday, Saturday, Sunday • 7PM - 2AM</p>
+      <p class="tag">Downtown Lounge</p>
     </div>
 
   </div>
 
-  <div class="bartender-card">
-    <h2>Savannah</h2>
-    <p>Status: <span class="status">Working Tonight</span></p>
-    <p>Specialty: Long Islands</p>
-    <p class="favorite">Fan Favorites: Peach Whiskey Sour, Southern Mule</p>
-    <p class="schedule">Schedule: Monday, Wednesday, Friday • 6PM - 1AM</p>
-    <p class="tag">Twin Peaks</p>
+  <div id="specials" class="section">
+
+    <div class="card">
+      <h2>$5 Long Islands</h2>
+      <p>Available until 9PM tonight.</p>
+      <p class="tag">Monday Special</p>
+    </div>
+
+    <div class="card">
+      <h2>2-for-1 Margaritas</h2>
+      <p>House margaritas and strawberry margaritas included.</p>
+      <p class="tag">Thursday Special</p>
+    </div>
+
+    <div class="card">
+      <h2>Late Night Espresso Martinis</h2>
+      <p>Half off after 10PM with live music.</p>
+      <p class="tag">Weekend Special</p>
+    </div>
+
   </div>
 
-  <div class="bartender-card">
-    <h2>Dixie</h2>
-    <p>Status: <span class="status">Available</span></p>
-    <p>Specialty: Margaritas</p>
-    <p class="favorite">Fan Favorites: Spicy Margarita, Texas Tea</p>
-    <p class="schedule">Schedule: Tuesday, Thursday, Saturday • 5PM - Midnight</p>
-    <p class="tag">Sports Bar</p>
-  </div>
+  <script>
+    function showSection(sectionId, el) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
 
-  <div class="bartender-card">
-    <h2>Georgia Mae</h2>
-    <p>Status: <span class="status">Weekend Shift</span></p>
-    <p>Specialty: Espresso Martinis</p>
-    <p class="favorite">Fan Favorites: Espresso Martini, Bourbon Cream Coffee</p>
-    <p class="schedule">Schedule: Friday, Saturday, Sunday • 7PM - 2AM</p>
-    <p class="tag">Downtown Lounge</p>
-  </div>
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      document.getElementById(sectionId).classList.add('active');
+      el.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
