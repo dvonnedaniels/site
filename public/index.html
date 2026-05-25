@@ -38,10 +38,12 @@
     }
 
     .nav-item {
+      display: block;
       margin-bottom: 20px;
       color: #94a3b8;
       cursor: pointer;
       transition: 0.3s;
+      text-decoration: none;
     }
 
     .nav-item:hover {
@@ -128,13 +130,13 @@
   <aside class="sidebar">
     <div class="logo">DVONNE LAB</div>
 
-    <div class="nav-item">Dashboard</div>
-    <div class="nav-item">Servers</div>
-    <div class="nav-item">Containers</div>
-    <div class="nav-item">CI/CD</div>
-    <div class="nav-item">Monitoring</div>
-    <div class="nav-item">Logs</div>
-    <div class="nav-item">GitHub</div>
+    <a class="nav-item" href="index.html">Dashboard</a>
+    <a class="nav-item" href="servers.html">Servers</a>
+    <a class="nav-item" href="#">Containers</a>
+    <a class="nav-item" href="#">CI/CD</a>
+    <a class="nav-item" href="#">Monitoring</a>
+    <a class="nav-item" href="#">Logs</a>
+    <a class="nav-item" href="https://github.com/dvonnedaniels" target="_blank">GitHub</a>
   </aside>
 
   <main class="main">
@@ -191,7 +193,7 @@
           Latest Commit:<br><br>
 
           <span class="highlight">
-            Redesign homepage as DevOps dashboard
+            Add navigation link to servers page
           </span><br><br>
 
           May 24, 2026
