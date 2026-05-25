@@ -2,59 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Lanes</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background: #f8fafc;
-      color: #0f172a;
-      font-family: Arial;
-      padding: 40px;
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.28), transparent 32%),
+        radial-gradient(circle at top right, rgba(236, 72, 153, 0.22), transparent 35%),
+        linear-gradient(180deg, #050505 0%, #0c0710 48%, #160b13 100%);
+      color: #f8fafc;
+      font-family: Arial, sans-serif;
+      padding: 42px;
     }
 
-    .bartender-card {
-      background: white;
-      padding: 20px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      border: 1px solid #cbd5e1;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    .page-header {
+      margin-bottom: 28px;
     }
 
-    h1 {
-      color: #0284c7;
-      margin-bottom: 30px;
-    }
-
-    h2 {
+    .eyebrow {
+      color: #f472b6;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       margin-bottom: 10px;
     }
 
+    h1 {
+      color: #ffffff;
+      font-size: 36px;
+      margin: 0 0 8px 0;
+    }
+
+    .subtitle {
+      color: #a1a1aa;
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .bartender-card {
+      background: rgba(15, 15, 18, 0.82);
+      padding: 22px;
+      border-radius: 26px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(244, 114, 182, 0.22);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(14px);
+    }
+
+    h2 {
+      margin: 0 0 12px 0;
+      font-size: 26px;
+      color: #ffffff;
+    }
+
+    p {
+      color: #d4d4d8;
+      margin: 10px 0;
+      line-height: 1.45;
+    }
+
     .status {
-      color: #16a34a;
+      color: #fb7185;
       font-weight: bold;
     }
 
     .tag {
-      color: #64748b;
-      margin-top: 10px;
+      display: inline-block;
+      color: #f9a8d4;
+      background: rgba(244, 114, 182, 0.12);
+      border: 1px solid rgba(244, 114, 182, 0.24);
+      padding: 7px 12px;
+      border-radius: 999px;
+      margin-top: 12px;
+      font-size: 14px;
     }
 
     .favorite {
-      color: #ca8a04;
+      color: #f0abfc;
       font-weight: bold;
     }
 
     .schedule {
-      margin-top: 10px;
-      color: #334155;
+      color: #c4b5fd;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 34px 24px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Lanes Bartender Board</h1>
+  <div class="page-header">
+    <div class="eyebrow">Lanes</div>
+    <h1>Bartender Board</h1>
+    <p class="subtitle">Fan favorites, work schedules, and house specialties.</p>
+  </div>
 
   <div class="bartender-card">
     <h2>Savannah</h2>
