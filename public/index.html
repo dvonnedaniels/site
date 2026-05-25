@@ -1,298 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <title>Dvonne Daniels | DevOps Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dvonne Daniels | DevOps Dashboard</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0b1120;
-      color: #e2e8f0;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b1120;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
 
-    .menu-btn {
-      display: none;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1001;
-      background: #111827;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
 
-    .layout {
-      display: flex;
-      min-height: 100vh;
-    }
+        h1 {
+            font-size: 3.2rem;
+            color: #38bdf8;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
 
-    .sidebar {
-      width: 220px;
-      background: #111827;
-      padding: 24px;
-      border-right: 1px solid #1e293b;
-      transition: transform 0.3s ease;
-    }
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #38bdf8;
-      margin-bottom: 40px;
-    }
+        p {
+            max-width: 760px;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 18px;
+        }
 
-    .nav-item {
-      display: block;
-      margin-bottom: 18px;
-      color: #94a3b8;
-      text-decoration: none;
-      font-size: 15px;
-    }
+        code {
+            background: rgba(255,255,255,0.08);
+            padding: 3px 8px;
+            border-radius: 6px;
+            color: #38bdf8;
+        }
 
-    .nav-item:hover {
-      color: white;
-    }
+        .links {
+            margin-top: 30px;
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    .main {
-      flex: 1;
-      padding: 24px;
-      overflow-x: hidden;
-    }
+        .button {
+            text-decoration: none;
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.2s ease;
+            box-shadow: 0 0 18px rgba(56,189,248,0.25);
+        }
 
-    .topbar {
-      margin-bottom: 30px;
-    }
+        .button:hover {
+            transform: translateY(-2px);
+            background: #7dd3fc;
+        }
 
-    .topbar h1 {
-      font-size: 38px;
-      line-height: 1.1;
-      margin-bottom: 10px;
-    }
+        footer {
+            margin-top: 80px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
 
-    .topbar p {
-      color: #94a3b8;
-    }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.4rem;
+            }
 
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
+            h2 {
+                font-size: 1rem;
+            }
 
-    .card {
-      background: rgba(30, 41, 59, 0.7);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 24px;
-      padding: 22px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
+            p {
+                font-size: 0.95rem;
+            }
 
-    .card h2 {
-      margin-bottom: 14px;
-      font-size: 20px;
-    }
+            .button {
+                width: 100%;
+                max-width: 260px;
+            }
 
-    .metric {
-      font-size: 40px;
-      font-weight: bold;
-      color: #38bdf8;
-    }
-
-    .status {
-      margin-top: 10px;
-      color: #22c55e;
-      font-size: 14px;
-    }
-
-    .chart-placeholder {
-      height: 160px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #64748b;
-      margin-top: 20px;
-    }
-
-    footer {
-      margin-top: 40px;
-      color: #64748b;
-      font-size: 14px;
-      padding-bottom: 30px;
-    }
-
-    .highlight {
-      color: #38bdf8;
-    }
-
-    @media (max-width: 900px) {
-
-      .menu-btn {
-        display: block;
-      }
-
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        z-index: 1000;
-        transform: translateX(-100%);
-      }
-
-      .sidebar.active {
-        transform: translateX(0);
-      }
-
-      .main {
-        width: 100%;
-        padding-top: 80px;
-      }
-
-      .topbar h1 {
-        font-size: 30px;
-      }
-
-      .dashboard-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .metric {
-        font-size: 34px;
-      }
-    }
-  </style>
+            .links {
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <button class="menu-btn" onclick="toggleMenu()">
-    ☰
-  </button>
+    <div class="container">
 
-  <div class="layout">
+        <h1>Dvonne Daniels</h1>
 
-    <aside class="sidebar" id="sidebar">
-      <div class="logo">DVONNE LAB</div>
+        <h2>
+            Linux • DevOps • Automation • Infrastructure
+        </h2>
 
-      <a class="nav-item" href="index.html">Dashboard</a>
-      <a class="nav-item" href="servers.html">Servers</a>
-      <a class="nav-item" href="#">Containers</a>
-      <a class="nav-item" href="#">CI/CD</a>
-      <a class="nav-item" href="#">Monitoring</a>
-      <a class="nav-item" href="#">Logs</a>
-      <a class="nav-item" href="lanes.html">Lanes</a>
-      <a class="nav-item" href="https://github.com/dvonnedaniels" target="_blank">GitHub</a>
-    </aside>
+        <p>
+            Building home lab infrastructure, CI/CD pipelines,
+            containerized services, automation platforms,
+            and cloud-hosted Linux environments.
+        </p>
 
-    <main class="main">
+        <p>
+            This site is running with
+            <code>Caddy</code>,
+            <code>Docker</code>,
+            and a Google Cloud free-tier VM.
+        </p>
 
-      <div class="topbar">
-        <div>
-          <h1>DevOps Command Center</h1>
-          <p>Linux • Automation • Infrastructure</p>
-        </div>
-      </div>
+        <div class="links">
+            <a class="button"
+               href="https://github.com/dvonnedaniels"
+               target="_blank">
+               GitHub
+            </a>
 
-      <div class="dashboard-grid">
-
-        <div class="card">
-          <h2>CPU Usage</h2>
-          <div class="metric">37%</div>
-          <div class="status">System load normal</div>
-        </div>
-
-        <div class="card">
-          <h2>RAM Usage</h2>
-          <div class="metric">18GB</div>
-          <div class="status">18GB / 32GB Used</div>
+            <a class="button"
+               href="#"
+               target="_blank">
+               Docker Registry
+            </a>
         </div>
 
-        <div class="card">
-          <h2>Server Health</h2>
-          <div class="metric">98%</div>
-          <div class="status">All systems operational</div>
-        </div>
+        <footer>
+            Powered by Linux, Docker, and caffeine.
+        </footer>
 
-        <div class="card">
-          <h2>Containers Running</h2>
-          <div class="metric">12</div>
-          <div class="status">Docker + Podman Active</div>
-        </div>
-
-        <div class="card">
-          <h2>CI/CD Pipelines</h2>
-          <div class="metric">5</div>
-          <div class="status">Last deployment successful</div>
-        </div>
-
-        <div class="card">
-          <h2>GPU Utilization</h2>
-
-          <div class="chart-placeholder">
-            GPU Graph Placeholder
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>Recent Deployments</h2>
-
-          <p>
-            • Jenkins deployment completed<br><br>
-            • Grafana updated<br><br>
-            • Ansible baseline pushed
-          </p>
-        </div>
-
-        <div class="card">
-          <h2>GitHub Activity</h2>
-
-          <p>
-            Latest Commit:<br><br>
-
-            <span class="highlight">
-              Update Lanes navigation link
-            </span><br><br>
-
-            May 25, 2026
-          </p>
-        </div>
-
-      </div>
-
-      <footer>
-        Powered by Linux, Docker, Caddy, and caffeine.
-      </footer>
-
-    </main>
-
-  </div>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('active');
-    }
-  </script>
+    </div>
 
 </body>
 </html>
