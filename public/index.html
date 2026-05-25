@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Dvonne Daniels | DevOps Dashboard</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,37 +13,42 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       background: #0b1120;
       color: #e2e8f0;
+      min-height: 100vh;
       display: flex;
-      height: 100vh;
+      flex-direction: row;
+      overflow-x: hidden;
     }
 
     .sidebar {
-      width: 260px;
+      width: 220px;
+      min-height: 100vh;
       background: #111827;
-      padding: 30px;
+      padding: 24px;
       border-right: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
     }
 
     .logo {
       font-size: 24px;
       font-weight: bold;
       color: #38bdf8;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     .nav-item {
       display: block;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       color: #94a3b8;
-      cursor: pointer;
-      transition: 0.3s;
       text-decoration: none;
+      font-size: 15px;
     }
 
     .nav-item:hover {
@@ -52,43 +57,46 @@
 
     .main {
       flex: 1;
-      padding: 40px;
+      padding: 24px;
       overflow-y: auto;
     }
 
     .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     .topbar h1 {
-      font-size: 36px;
+      font-size: 38px;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .topbar p {
+      color: #94a3b8;
     }
 
     .dashboard-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
     }
 
     .card {
       background: rgba(30, 41, 59, 0.7);
       border: 1px solid rgba(255,255,255,0.05);
       border-radius: 24px;
-      padding: 24px;
+      padding: 22px;
       backdrop-filter: blur(10px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
     .card h2 {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       font-size: 20px;
     }
 
     .metric {
-      font-size: 42px;
+      font-size: 40px;
       font-weight: bold;
       color: #38bdf8;
     }
@@ -96,16 +104,13 @@
     .status {
       margin-top: 10px;
       color: #22c55e;
+      font-size: 14px;
     }
 
     .chart-placeholder {
-      height: 180px;
+      height: 160px;
       border-radius: 18px;
-      background: linear-gradient(
-        135deg,
-        #1e293b,
-        #0f172a
-      );
+      background: linear-gradient(135deg, #1e293b, #0f172a);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -117,10 +122,57 @@
       margin-top: 40px;
       color: #64748b;
       font-size: 14px;
+      padding-bottom: 30px;
     }
 
     .highlight {
       color: #38bdf8;
+    }
+
+    @media (max-width: 900px) {
+
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        min-height: auto;
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        align-items: center;
+        border-right: none;
+        border-bottom: 1px solid #1e293b;
+        position: relative;
+      }
+
+      .logo {
+        margin-bottom: 0;
+        margin-right: 20px;
+        white-space: nowrap;
+      }
+
+      .nav-item {
+        margin-bottom: 0;
+        white-space: nowrap;
+      }
+
+      .main {
+        padding: 18px;
+      }
+
+      .topbar h1 {
+        font-size: 30px;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        font-size: 34px;
+      }
     }
   </style>
 </head>
@@ -205,7 +257,7 @@
           Latest Commit:<br><br>
 
           <span class="highlight">
-            Add RAM and CPU usage cards
+            Optimize dashboard for iPhone Safari
           </span><br><br>
 
           May 24, 2026
